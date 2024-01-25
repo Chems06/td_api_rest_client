@@ -1,0 +1,7 @@
+{
+  "name": "td_api_rest_client",
+  "version": "1.0.0",
+  "dependencies": {
+    "axios": "^1.6.5"
+  }
+}
