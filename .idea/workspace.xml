@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05446aa3-b296-49ea-a1cd-3176465e93d6" name="Changes" comment="début client avec axios">
+    <list default="true" id="05446aa3-b296-49ea-a1cd-3176465e93d6" name="Changes" comment="Post &amp; Get mapping">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
@@ -39,6 +39,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.9.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.9.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jouai/Desktop/Telecom/S9/info/TSE-Startup-POC&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -58,7 +61,10 @@
       <workItem from="1705951575448" duration="5185000" />
       <workItem from="1706037013400" duration="635000" />
       <workItem from="1706188925366" duration="584000" />
-      <workItem from="1706189516022" duration="4601000" />
+      <workItem from="1706189516022" duration="4791000" />
+      <workItem from="1706281519884" duration="4564000" />
+      <workItem from="1706305037040" duration="1047000" />
+      <workItem from="1706369912565" duration="2689000" />
     </task>
     <task id="LOCAL-00001" summary="début client avec axios">
       <option name="closed" value="true" />
@@ -68,7 +74,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706189194087</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Post &amp; Get mapping">
+      <option name="closed" value="true" />
+      <created>1706194578433</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706194578433</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -76,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="début client avec axios" />
-    <option name="LAST_COMMIT_MESSAGE" value="début client avec axios" />
+    <MESSAGE value="Post &amp; Get mapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="Post &amp; Get mapping" />
   </component>
 </project>

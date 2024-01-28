@@ -1,77 +1,92 @@
 const axios = require('axios');
 
-
-axios.post('http://localhost:8080/equipes', {
-    name: 'equipe4',
+const url = 'http://localhost:8080/';
+axios.post(url + 'equipes', {
+    nom: 'equipe4',
 })
     .then(function (response) {
+        console.log("Voice les informations de l'équipe que l'on vient de créer");
         console.log(response.data);
 
         // Une fois l'équipe 4 créée, ajouter les joueurs associés
-        axios.post('http://localhost:8080/joueurs', {
-            name: 'joueur3',
-            surname: 'joueur3',
-            equipe: {
+        axios.post(url + 'joueurs', {
+            nom: 'joueur3', prenom: 'joueur3', dateDeNaissance: '2002-06-01', equipe: {
                 id: response.data.id,
             }
         })
             .then(function (response) {
+                console.log("Voici les informations sur le joueur que l'on vient de créer");
                 console.log(response.data);
+                axios.post(url + 'joueurs', {
+                    nom: 'joueur4', prenom: 'joueur4', dateDeNaissance: '2002-06-01', equipe: {
+                        id: response.data.id,
+                    }
+                })
+                    .then(function (response) {
+                        console.log("Voici les informations sur le joueur que l'on vient de créer");
+                        console.log(response.data);
+                        axios.get(url + 'equipes')
+                            .then(function (response) {
+                                // handle success
+                                console.log(response.data.length + ' équipe(s) trouvée(s) :');
+
+                                response.data.forEach(equipe => {
+                                    console.log(` - ${equipe.id}, ${equipe.nom}`);
+
+                                    // Afficher la liste des joueurs de l'équipe
+                                    equipe.joueurs.forEach(joueur => {
+                                        console.log(`   * ${joueur.id}, ${joueur.nom}, ${joueur.prenom}, ${joueur.dateDeNaissance}, ${JSON.stringify(joueur.equipe)}`);
+                                    });
+                                });
+                                axios.get(url + 'joueurs')
+                                    .then(function (response) {
+                                        // handle success
+                                        console.log(response.data.length + ' joueur(s) trouvée(s) :');
+
+                                        response.data.forEach(joueur => {
+                                            console.log(` - ${joueur.id}, ${joueur.nom}, ${joueur.prenom}, ${joueur.dateDeNaissance}, ${JSON.stringify(joueur.equipe)}`);
+                                        });
+                                        axios.delete(url + 'joueurs/4')
+                                            .then(function (response) {
+                                                // handle success
+                                                console.log("Le joueur dont l'id est égale à 4 vient d'être supprimé");
+                                                axios.get(url + 'joueurs')
+                                                    .then(function (response) {
+                                                        // handle success
+                                                        console.log(response.data.length + ' joueur(s) trouvée(s) :');
+
+                                                        response.data.forEach(joueur => {
+                                                            console.log(` - ${joueur.id}, ${joueur.nom}, ${joueur.prenom}, ${joueur.dateDeNaissance}, ${JSON.stringify(joueur.equipe)}`);
+                                                        });
+                                                    })
+                                                    .catch(function (error) {
+                                                        // handle error
+                                                        console.log(error);
+                                                    });
+                                            })
+                                            .catch(function (error) {
+                                                console.log(error);
+                                            });
+                                    })
+                                    .catch(function (error) {
+                                        // handle error
+                                        console.log(error);
+                                    });
+                            })
+                            .catch(function (error) {
+                                // handle error
+                                console.log(error);
+                            });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-        axios.post('http://localhost:8080/joueurs', {
-            name: 'joueur4',
-            surname: 'joueur4',
-            equipe: {
-                id: response.data.id,
-            }
-        })
-            .then(function (response) {
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    })
-    .catch(function (error) {
-        console.log(error);
     });
 
 
-axios.get('http://localhost:8080/equipes')
-    .then(function (response) {
-        // handle success
-        console.log(response.data.length + ' équipe(s) trouvée(s) :');
-
-        response.data.forEach(equipe => {
-            console.log(` - ${equipe.id}, ${equipe.name}`);
-
-            // Afficher la liste des joueurs de l'équipe
-            equipe.joueurs.forEach(joueur => {
-                console.log(`   * ${joueur.id}, ${joueur.name}, ${joueur.surname}`);
-            });
-        });
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
-
-axios.get('http://localhost:8080/joueurs')
-    .then(function (response) {
-        // handle success
-        console.log(response.data.length + ' joueur(s) trouvée(s) :');
-
-        response.data.forEach(joueur => {
-            console.log(` - ${joueur.id}, ${joueur.name}, ${joueur.surname}, ${JSON.stringify(joueur.equipe)}`);
-        });
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    });
 
 
